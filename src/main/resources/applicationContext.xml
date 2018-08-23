@@ -79,7 +79,7 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
     <!-- 启用事务注解功能 -->
-	<!-- <tx:annotation-driven transaction-manager="transactionManager" /> -->
+	<tx:annotation-driven transaction-manager="transactionManager" order="0"/>
 
     <!-- 配置事务增强处理Bean，指定事务管理器 -->
     <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
@@ -103,7 +103,7 @@
         <!-- 配置切入点 -->
         <aop:pointcut id="transactionPointcut" expression="execution(* com.cch.services.*.*(..))"  />
         <!-- 指定在txAdvice切入点应用txAdvice事务增强处理 -->
-        <aop:advisor pointcut-ref="transactionPointcut"    advice-ref="transactionAdvice" />
+        <aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" order="1"/>
     </aop:config>
     
     <!-- 引用各模块的spring配置文件 -->  
