@@ -18,12 +18,18 @@ import junit.framework.Assert;
 @Transactional(transactionManager="transactionManager",readOnly=true)
 public class BookServiceTest {
 	private static int count =0;
-	
+
 	@Autowired
-	private BookService service;
+	private  BookService service;
+	public String name;
+	public String nameClass;
 	
 	@Before
 	public void before() {
+		if(name==null) {
+			name = "qunimade";
+			System.out.println("初始化 name："+name);
+		}
 		System.out.println("================before count: " +count++);
 	}
 	@After
