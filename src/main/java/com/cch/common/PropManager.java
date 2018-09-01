@@ -21,8 +21,12 @@ public class PropManager {
 		InputStream in = null;
 		try {
 			//getResourceAsStream 直接将文件装载到内存中
+			
+			String env = System.getProperty("FAW.ServiceFor");
+			
 			//InputStream in = PropManager.class.getClassLoader().getResourceAsStream("configs/init.properties");
-			String path = PropManager.class.getClassLoader().getResource("configs/init.properties").getPath();
+			String path = PropManager.class.getClassLoader().getResource("configs/init_"+env+".properties").getPath();
+			System.out.println("path: "+path);
 			in = new BufferedInputStream(new FileInputStream(path));
 			prop.load(in); // 加载属性列表
 			Iterator<String> it = prop.stringPropertyNames().iterator();

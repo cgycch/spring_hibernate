@@ -21,7 +21,7 @@
         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath:configs/init.properties</value>
+                <value>classpath:configs/init_${FAW.ServiceFor}.properties</value>
             </list>
         </property>
     </bean>
